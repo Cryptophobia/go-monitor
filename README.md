@@ -25,6 +25,15 @@ go-monitor needs a config.json file with this minimal structure:
 }
 ```
 
+Defaults for CheckTimer options (in seconds) are:
+
+```json
+"CheckTimer": {
+  "interval": 30,
+  "timeout": 5
+}
+```
+
 You can also specify the config file path with the `-config` flag. For example:
 
 ```
