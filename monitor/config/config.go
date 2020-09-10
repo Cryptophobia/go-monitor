@@ -14,7 +14,7 @@ type Config struct {
 		Interval int
 		Timeout  int
 	}
-	URLs []URLs
+	URLs []URL
 }
 
 // CreateConfigurationFromFile Returns a new configuration loaded from a file
@@ -27,7 +27,7 @@ func CreateConfigurationFromFile(configFile string) (Config, error) {
 			Interval: 30,
 			Timeout:  5,
 		},
-		URLs: []URLs{},
+		URLs: []URL{},
 	}
 
 	if _, err := os.Stat(configFile); !os.IsNotExist(err) {

@@ -24,6 +24,17 @@ go-monitor needs a config.json file with this minimal structure:
 }
 ```
 
+You can also specify the config file path with the `-config` flag. For example:
+
+```
+go run main.go -config a/custom/path/my_config.json
+```
+
+Kubernetes pod command:
+```
+command: go run main.go -config /go/src/app/config.json
+```
+
 ### Metrics exported:
 
 ```
