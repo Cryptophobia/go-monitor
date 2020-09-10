@@ -63,7 +63,7 @@ Root http://localhost:5000/ is also exposed with a status page and version infor
 ### Testing go-monitor locally:
 
 ```bash
-go test ./tool/tests/...
+go test ./monitor/tests/...
 ```
 
 ### Tearing down go-monitor and prometheus:
