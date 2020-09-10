@@ -6,6 +6,8 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+
+	valid "monitor/utils/validators"
 )
 
 // Config represents a configuration set for the program to run
@@ -48,6 +50,12 @@ func CreateConfigurationFromFile(configFile string) (Config, error) {
 
 	if len(config.URLs) == 0 {
 		return config, fmt.Errorf("No urls found in the configuration")
+	}
+
+	for _, url := range config.URLs {
+		if isValid, _ := valid.IsValidURL(url.URL); !isValid {
+			return config, fmt.Errorf("Invalid url format in URLs section of config: %v", url.URL)
+		}
 	}
 
 	maxTotalTimeout := config.CheckTimer.Timeout * len(config.URLs)
