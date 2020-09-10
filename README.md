@@ -6,6 +6,7 @@ go-monitor uses:
 * Gorilla web toolkit [mux](http://www.gorillatoolkit.org/pkg/mux) for the routing.
 * [Prometheus](https://prometheus.io/) time-series database for collecting metrics/monitoring.
 * [prometheus/client_golang](https://github.com/prometheus/client_golang) for registering collections of custom metrics for the Prometheus metrics collector.
+* [tcnksm/go-httpstat](https://github.com/tcnksm/go-httpstat) for precise timing of the go client http request.
 * [prometheus-middleware](https://github.com/albertogviana/prometheus-middleware) for collecting metrics about API routes.
 * [docker-compose](https://github.com/docker/compose) for building, developing, and testing locally.
 

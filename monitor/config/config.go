@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-// Config represents configuration set for the program to run
+// Config represents a configuration set for the program to run
 type Config struct {
 	CheckTimer struct {
 		Interval int
@@ -17,7 +17,7 @@ type Config struct {
 	URLs []URL
 }
 
-// CreateConfigurationFromFile Returns a new configuration loaded from a file
+// CreateConfigurationFromFile returns a new configuration loaded from a file
 func CreateConfigurationFromFile(configFile string) (Config, error) {
 	config := Config{
 		CheckTimer: struct {

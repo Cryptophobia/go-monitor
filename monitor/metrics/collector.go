@@ -65,10 +65,9 @@ var (
 	)
 )
 
-// Run function is where all the prometheus data logic and checks go in here with timeouts & statuses.
+// Run function is meant to be ran in main() as an initializer of this worker
 func (c *Collector) Run() {
-	// Defining the metrics we wish to expose on init
-	// Promauto automatically registers the metric if this function is ran in main()
+	// Promauto automatically registers the metrics variables above if this function is ran in main()
 	ticker := time.NewTicker(time.Second * time.Duration(c.Config.CheckTimer.Interval))
 
 	for {
@@ -114,7 +113,7 @@ func (c *Collector) CheckAll() {
 	}
 }
 
-// fetchURL fetches an url and gets are response
+// fetchURL fetches an url and gets a response
 func fetchURL(client *http.Client, URL string) (statusCode int, latency time.Duration, e error) {
 	req, err := http.NewRequest("GET", URL, nil)
 	if err != nil {
