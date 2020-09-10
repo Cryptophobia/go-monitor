@@ -1,0 +1,12 @@
+{
+  "URLs": [
+    {
+      "name": "503",
+      "url": "https://httpstat.us/503"
+    },
+    {
+      "name": "200",
+      "url": "https://httpstat.us/200"
+    }
+  ]
+}

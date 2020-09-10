@@ -1,0 +1,33 @@
+version: '3.3'
+volumes:
+  prometheus_data: {}
+services:
+  go-monitor:
+    container_name: 'go-monitor'
+    build: './monitor'
+    image: "cryptophobia/go-monitor:${TAG}"
+    command: "go run main.go -config /go/src/app/config.json"
+    ports:
+      - '5000:5000'
+    volumes:
+      - './monitor:/go/src/app'
+      - './config.json:/go/src/app/config.json'
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention=200h'
+      - '--web.enable-lifecycle'
+    # restart: unless-stopped
+    expose:
+      - 9090
+    ports:
+      - "9090:9090"
