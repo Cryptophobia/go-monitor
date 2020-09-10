@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.17.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: go-monitor
+  name: go-monitor
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: go-monitor
+    spec:
+      containers:
+      - args:
+        - go
+        - run
+        - main.go
+        - -config
+        - /go/src/app/config.json
+        image: 'cryptophobia/go-monitor:latest'
+        name: go-monitor
+        ports:
+        - containerPort: 5000
+        resources: {}
+        volumeMounts:
+        - mountPath: /go/src/app/config.json
+          name: go-monitor-claim0
+      restartPolicy: Always
+      volumes:
+      - name: go-monitor-claim0
+        persistentVolumeClaim:
+          claimName: go-monitor-claim0
+status: {}

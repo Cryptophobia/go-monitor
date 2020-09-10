@@ -82,6 +82,10 @@ make stop TAG=latest ENV=dev
 
 ![histogram_quantile](../master/docs/images/histogram_quantile.png?raw=true)
 
+### Deploying to Kubernetes Cluster:
+
+Check out the sample Kubernetes kubectl deployment manifests in `./k8s` folder.
+
 ### Original Problem:
 
 Overview
