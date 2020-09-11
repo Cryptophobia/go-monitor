@@ -7,7 +7,7 @@ go-monitor uses:
 * [Prometheus](https://prometheus.io/) time-series database for collecting metrics/monitoring.
 * [prometheus/client_golang](https://github.com/prometheus/client_golang) for registering collections of custom metrics for the Prometheus metrics collector.
 * [tcnksm/go-httpstat](https://github.com/tcnksm/go-httpstat) for precise timing of the go client http request.
-* [prometheus-middleware](https://github.com/albertogviana/prometheus-middleware) for collecting metrics about API routes.
+* [go-http-metrics](https://github.com/slok/go-http-metrics) for collecting metrics about API routes.
 * [docker-compose](https://github.com/docker/compose) for building, developing, and testing locally.
 
 ### Configuration:
@@ -68,6 +68,8 @@ make start TAG=latest ENV=dev
 
 Builds the go-monitor and then runs it in the background - http://localhost:5000/metrics is the only route exposed for prometheus.
 Root http://localhost:5000/ is also exposed with a status page and version information.
+
+To access Prometheus UI for metrics and queries: http://localhost:9090/
 
 ### Testing go-monitor locally:
 
